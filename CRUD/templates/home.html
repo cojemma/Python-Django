@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>All Fruit</h1>
+{% if not fruits%}
+    <h2>There's no fruits</h2>
+{% endif %}
+<div id="container">
+    <hr>
+        {% for fruit in fruits %}
+        <div>
+            <li>{{fruit.name}}</li>
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" name="no" value="Delete{{fruit.no}}">
+            </form>
+        </div>
+        {% endfor %}
+</div>
+<a href="/add">Add Fruit</a>
+</body>
+</html>

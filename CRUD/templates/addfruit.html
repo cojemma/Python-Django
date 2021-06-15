@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Fruit</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <form action="/add/" method="post">
+    {% csrf_token %}
+    <div id="container">
+        <label>Enter the Fruit Name:</label>
+        <input type="text" name="name">
+        <input type="submit" value="Enter">
+    </div>
+    </form>
+    <p>{{condition}}</p>
+</body>
+</html>
