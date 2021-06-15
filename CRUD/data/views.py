@@ -5,12 +5,11 @@ from data.models import fruit
 from django.http import JsonResponse, HttpResponse, HttpRequest, HttpResponseRedirect
 
 def home(request):
-    fruits = fruit.objects.all().order_by('no')
     if request.method == 'POST':
         request.POST.get('no')
         f=fruit.objects.get(no=request.POST.get('no')[6:])
         f.delete()
-        return render(request, 'home.html', {'fruits': fruits})
+    fruits = fruit.objects.all().order_by('no')
     return render(request, 'home.html', {'fruits': fruits})
 
 def add(request: HttpRequest) -> HttpResponse:

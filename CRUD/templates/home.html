@@ -8,7 +8,7 @@
 <h1>All Fruit</h1>
 {% if not fruits%}
     <h2>There's no fruits</h2>
-{% endif %}
+{% else %}
 <div id="container">
     <hr>
         {% for fruit in fruits %}
@@ -21,6 +21,7 @@
         </div>
         {% endfor %}
 </div>
+{% endif %}
 <a href="/add">Add Fruit</a>
 </body>
 </html>
