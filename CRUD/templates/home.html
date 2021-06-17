@@ -13,11 +13,12 @@
     <hr>
         {% for fruit in fruits %}
         <div>
-            <li>{{fruit.name}}</li>
-            <form method="post">
+            <li style="display:inline">{{fruit.name}}</li>
+            <form method="post" style="display:inline">
                 {% csrf_token %}
-                <input type="submit" name="no" value="Delete{{fruit.no}}">
+                <input type="submit" name="no" value="Delete{{fruit.no}}" style="display:inline">
             </form>
+            <a href="/edit/?no={{fruit.no}}" style="display:inline">Edit</a>
         </div>
         {% endfor %}
 </div>

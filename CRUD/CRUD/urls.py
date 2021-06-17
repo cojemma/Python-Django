@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', views.home),
     re_path(r'^add/$', views.add),
+    re_path(r'^edit/$', views.edit)
 ]

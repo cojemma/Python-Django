@@ -25,3 +25,19 @@ def add(request: HttpRequest) -> HttpResponse:
             condition = {'condition': 'Please Repeat'}
             return render(request, 'addfruit.html', condition)
     return render(request, 'addfruit.html', condition)
+
+def edit(request:HttpRequest) -> HttpResponse:
+    fruit1 = fruit.objects.get(no=request.GET['no'])
+    if 'no' in request.GET and request.method != 'POST':
+        print(request.GET['no'])
+
+        print(fruit1.name)
+        return render(request, 'editfruit.html', locals())
+    elif request.method == 'POST':
+        re_name = request.POST['name']
+        print(re_name)
+        fruit1.name = re_name
+        fruit1.save()
+        return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
