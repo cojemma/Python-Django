@@ -7,7 +7,7 @@ from django.http import JsonResponse, HttpResponse, HttpRequest, HttpResponseRed
 def home(request):
     if request.method == 'POST':
         request.POST.get('no')
-        f=fruit.objects.get(no=request.POST.get('no')[6:])
+        f=fruit.objects.get(no=request.POST.get('no'))
         f.delete()
     fruits = fruit.objects.all().order_by('no')
     return render(request, 'home.html', {'fruits': fruits})
@@ -29,13 +29,12 @@ def add(request: HttpRequest) -> HttpResponse:
 def edit(request:HttpRequest) -> HttpResponse:
     fruit1 = fruit.objects.get(no=request.GET['no'])
     if 'no' in request.GET and request.method != 'POST':
-        print(request.GET['no'])
-
-        print(fruit1.name)
+        #print(request.GET['no'])
+        #print(fruit1.name)
         return render(request, 'editfruit.html', locals())
     elif request.method == 'POST':
         re_name = request.POST['name']
-        print(re_name)
+        #print(re_name)
         fruit1.name = re_name
         fruit1.save()
         return HttpResponseRedirect('/')

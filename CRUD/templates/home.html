@@ -16,7 +16,8 @@
             <li style="display:inline">{{fruit.name}}</li>
             <form method="post" style="display:inline">
                 {% csrf_token %}
-                <input type="submit" name="no" value="Delete{{fruit.no}}" style="display:inline">
+                <input type="hidden" name="no" value="{{fruit.no}}">
+                <input type="submit" value="Delete" style="display:inline">
             </form>
             <a href="/edit/?no={{fruit.no}}" style="display:inline">Edit</a>
         </div>
